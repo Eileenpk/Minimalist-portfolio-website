@@ -1,0 +1,38 @@
+:root {
+  font-size: 16px;
+  --main-color: #fafafa;
+  --btn-color:#203a4c;
+  --hover-state:#5FB4A2;
+  --heading-color: #33323d;
+  --font-color: #5b5a63;
+  --link-color:#FFF;
+  --font-family:  'Public Sans', sans-serif;
+  --heading-font: 'Ibarra Real Nova', serif;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
