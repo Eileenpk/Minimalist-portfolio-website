@@ -53,7 +53,6 @@ export const getStaticProps = async () => {
 
 
 export default function Home({sections}) {
-  console.log(sections)
   const { width } = useWindowSize();
   return (
     <div className={styles.container}>
@@ -69,7 +68,7 @@ export default function Home({sections}) {
       </Head>
       <Header className={styles.header} />
       <main className={styles.main}>
-        <section className={`${styles.aboutMe} ${styles.section} `}>
+        <section className={styles.aboutMe}>
       { width < 600 ?
         <Image 
           src={sections[0].heroPhotoMobile.url}
@@ -95,52 +94,58 @@ export default function Home({sections}) {
           height={600}
         />
         }
-          <div className={styles.aboutMeInfo}>
-            <h1 className={styles.title}>
-              {sections[0].tagLine}
-            </h1>
-            <div className={`${styles.btn} ${styles.aboutMeBtn}`}>
-                <div className={styles.btnIconContainer}>
-                  <img className={styles.btnIcon} src='../images/down-arrows.svg'/>
-                </div>
-                <a href="#about-me">ABOUT ME</a>
+            <div className={styles.aboutMeHeroText}>
+              <h1 className={styles.title}>
+                {sections[0].tagLine}
+              </h1>
+              <div className={`${styles.btn} ${styles.aboutMeBtn}`}>
+                  <div className={styles.btnIconContainer}>
+                    <img className={styles.btnIcon} src='../images/down-arrows.svg'/>
+                  </div>
+                  <a href="#about-me">ABOUT ME</a>
+              </div>
             </div>
-          { width < 600 ?
-            <Image 
-              src={sections[0].secondPhotoMobile.url}
-              className={styles.image}
-              alt="Logo"
-              width={311}
-              height={346}
-            /> :
-            width < 1000 ?
-            <Image 
-              src={sections[0].secondPhotoTablet.url}
-              className={styles.avatar}
-              alt="Logo"
-              width={281}
-              height={600}
-            />    
-            :
-            <Image 
-              src={sections[0].secondPhotoFullWebsite.url}
-              className={styles.image}
-              alt="Logo"
-              width={540}
-              height={600}
-            />        
-          }
+        </section>
+        <section className={styles.aboutMeSection}>
+          <div className={styles.avatarContainer}>
+            { width < 600 ?
+                <Image 
+                  src={sections[0].secondPhotoMobile.url}
+                  className={styles.image}
+                  alt="Avatar"
+                  width={311}
+                  height={346}
+                /> :
+                width < 1000 ?
+                <Image 
+                  src={sections[0].secondPhotoTablet.url}
+                  className={styles.avatar}
+                  alt="Avatar"
+                  width={281}
+                  height={600}
+                />    
+                :
+                <Image 
+                  src={sections[0].secondPhotoFullWebsite.url}
+                  className={styles.image}
+                  alt="Avatar"
+                  width={540}
+                  height={600}
+                />        
+              }
+          </div>
+          <div className={styles.aboutMeText}>
+            <h1>{sections[0].title}</h1>
+            <p>{sections[0].descriptionText}</p>
+            <div className={styles.btn}>
+              <a href="#Portfolio">GO TO PORTFOLIO</a>
+            </div>
           </div>
         </section>
-        <section className={styles.aboutMeText}>
-          <h1>{sections[0].title}</h1>
-          <p>{sections[0].descriptionText}</p>
-          <div className={styles.btn}>
-            <a href="#Portfolio">GO TO PORTFOLIO</a>
-          </div>
-        </section>
+        
         <section className={styles.contactMe}>
           <h1>Interested in doing a project together?</h1>
+          <div className={styles.hrLine}></div>
           <div className={`${styles.btn} ${styles.contactMeBtn}`}>
             <a href="#Portfolio">CONTACT ME</a>
           </div>
