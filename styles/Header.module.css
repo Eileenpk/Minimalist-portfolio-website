@@ -21,7 +21,7 @@
 /* Nav links type */
 .navlinks,
 .longNavLinks {
-    color: var(--main-color);
+    color: var(--font-color);
     font-family: var(--font-family);
     font-size: 12px;
     line-height: 14px;

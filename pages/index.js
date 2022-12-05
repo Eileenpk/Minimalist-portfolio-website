@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import Header from "./Header";
 import Footer from "./Footer"
 import { gql, GraphQLClient } from 'graphql-request'
+import useWindowSize from "./utils/useWindowSize";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT
@@ -14,21 +15,29 @@ export const getStaticProps = async () => {
   })
   const query = gql`
     query{
-      sections{
-      title
-      slug
-      heroPhoto {
-        id
-        url
-      }
-      tagLine
-      description {
-        html
-      }
-      secondPhoto {
-        id
-        url
-      }
+      sections {
+        title
+        slug
+        heroPhotoMobile {
+          url
+        }
+        heroPhotoTablet {
+          url
+        }
+        heroPhotoFullWebsite {
+          url
+        }
+        tagLine
+        descriptionText
+        secondPhotoMobile {
+          url
+        }
+        secondPhotoTablet {
+          url
+        }
+        secondPhotoFullWebsite {
+          url
+        }
       }
     }
     `
@@ -45,6 +54,7 @@ export const getStaticProps = async () => {
 
 export default function Home({sections}) {
   console.log(sections)
+  const { width } = useWindowSize();
   return (
     <div className={styles.container}>
       <Head>
@@ -59,14 +69,32 @@ export default function Home({sections}) {
       </Head>
       <Header className={styles.header} />
       <main className={styles.main}>
-        <section className={` ${styles.aboutMe} ${styles.section} `}>
+        <section className={`${styles.aboutMe} ${styles.section} `}>
+      { width < 600 ?
         <Image 
-          src={sections[0].heroPhoto.url}
-          alt="Logo"
-          width={25}
-          height={25}
+          src={sections[0].heroPhotoMobile.url}
+          className={styles.image}
+          alt="hero"
+          width={400}
+          height={400}
         />
-          <img className={`${styles.hero} ${styles.img}`} src={sections[0].heroPhoto.url} />
+        : width < 1000 ?
+        <Image 
+          src={sections[0].heroPhotoTablet.url}
+          className={styles.image}
+          alt="hero"
+          width={688}
+          height={600}
+        />
+        :
+        <Image 
+          src={sections[0].heroPhotoFullWebsite.url}
+          className={styles.image}
+          alt="hero"
+          width={1110}
+          height={600}
+        />
+        }
           <div className={styles.aboutMeInfo}>
             <h1 className={styles.title}>
               {sections[0].tagLine}
@@ -77,11 +105,46 @@ export default function Home({sections}) {
                 </div>
                 <a href="#about-me">ABOUT ME</a>
             </div>
-            <img className={`${styles.avatar} ${styles.img}`} src={sections[0].secondPhoto.url} />
+          { width < 600 ?
+            <Image 
+              src={sections[0].secondPhotoMobile.url}
+              className={styles.image}
+              alt="Logo"
+              width={311}
+              height={346}
+            /> :
+            width < 1000 ?
+            <Image 
+              src={sections[0].secondPhotoTablet.url}
+              className={styles.avatar}
+              alt="Logo"
+              width={281}
+              height={600}
+            />    
+            :
+            <Image 
+              src={sections[0].secondPhotoFullWebsite.url}
+              className={styles.image}
+              alt="Logo"
+              width={540}
+              height={600}
+            />        
+          }
           </div>
-          
         </section>
-      
+        <section className={styles.aboutMeText}>
+          <h1>{sections[0].title}</h1>
+          <p>{sections[0].descriptionText}</p>
+          <div className={styles.btn}>
+            <a href="#Portfolio">GO TO PORTFOLIO</a>
+          </div>
+        </section>
+        <section className={styles.contactMe}>
+          <h1>Interested in doing a project together?</h1>
+          <div className={`${styles.btn} ${styles.contactMeBtn}`}>
+            <a href="#Portfolio">CONTACT ME</a>
+          </div>
+        </section>
 
         
       </main>
