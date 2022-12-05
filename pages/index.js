@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "./Header";
 import Footer from "./Footer"
+import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from 'graphql-request'
 import useWindowSize from "./utils/useWindowSize";
 
@@ -55,7 +56,7 @@ export const getStaticProps = async () => {
 export default function Home({sections}) {
   const { width } = useWindowSize();
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id='home'>
       <Head>
         <title>Minimalist portfolio website beautiful design at a beautiful price</title>
         <meta name="description" content="Come see how we create beautiful and useable design to help you get your message to the world." />
@@ -134,24 +135,16 @@ export default function Home({sections}) {
                 />        
               }
           </div>
-          <div className={styles.aboutMeText}>
+          <div className={styles.aboutMeText} id='about-me'>
             <h1>{sections[0].title}</h1>
-            <p>{sections[0].descriptionText}</p>
+            <p className={styles.pText}>{sections[0].descriptionText}</p>
             <div className={styles.btn}>
-              <a href="#Portfolio">GO TO PORTFOLIO</a>
+              <a href="#portfolio">GO TO PORTFOLIO</a>
             </div>
           </div>
         </section>
         
-        <section className={styles.contactMe}>
-          <h1>Interested in doing a project together?</h1>
-          <div className={styles.hrLine}></div>
-          <div className={`${styles.btn} ${styles.contactMeBtn}`}>
-            <a href="#Portfolio">CONTACT ME</a>
-          </div>
-        </section>
-
-        
+        <ContactMeSection />
       </main>
 
       <Footer className={styles.footer}/>

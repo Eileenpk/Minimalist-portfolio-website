@@ -1,9 +1,11 @@
+import Link from 'next/link';
+
 export default function NavLinks ({className}) {
     return (
         <div className={className}>
-                    <a href="/starter-code/index.html">Home</a>
-                    <a href="/starter-code/portfolio.html">Portfolio</a>
-                    <a href="/starter-code/contact.html">Contact Me</a>
+                    <Link href="/">Home</Link>
+                    <Link href="/Portfolio">Portfolio</Link>
+                    <Link href="/Contact">Contact Me</Link>
         </div>
     )
 }

@@ -21,7 +21,6 @@
 /* Nav links type */
 .navlinks,
 .longNavLinks {
-    color: var(--font-color);
     font-family: var(--font-family);
     font-size: 12px;
     line-height: 14px;
@@ -29,10 +28,15 @@
     text-transform: uppercase;
 }
 
+.navlinks {
+    color: var(--main-color);
+}
+.longNavLinks {
+    color: var(--font-color);
+}
 /* Nav links */
 .navContainer {
-    margin-left: auto;  
-      
+    margin-left: auto;     
 }
 .navlinks{
     display: flex;
@@ -47,7 +51,9 @@
 }
 
 .navlinks a:hover,
-.navlinks a:active {
+.navlinks a:active,
+.longNavLinks a:hover,
+.longNavLinks a:active {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
@@ -63,7 +69,7 @@
 
 @media(min-width:768px) {
     .navlinks {
-        background-color: green;
+        
     }
 }
 
