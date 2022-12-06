@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from 'next/link';
 import styles from "../styles/Home.module.css";
 import Portfoliostyles from '../styles/Portfolio.module.css'
 import Header from "./Header";
@@ -46,10 +47,9 @@ export const getStaticProps = async () => {
 
 export default function Portfolio({ projects }) {
     const { width } = useWindowSize()
-    console.log(projects) 
     const projectMap = projects.map(project => {
         return (
-            <section className={Portfoliostyles.section}>
+            <section className={Portfoliostyles.section} key={project.slug}>
             <div>
             { width < 650 ?
                 <Image 
@@ -82,7 +82,7 @@ export default function Portfolio({ projects }) {
                 <h1 className={styles.title}>{project.title}</h1>
                 <p className={`${styles.pText} ${Portfoliostyles.projectText}`}>{project.textDescription}</p>
                 <div className={styles.btn}>
-                    <a href="#portfolio">VIEW PROJECT</a>
+                    <Link href={`/${project.slug}`}>VIEW PROJECT</Link>
                 </div>
             </div>
             </section>
@@ -91,6 +91,16 @@ export default function Portfolio({ projects }) {
     })
     return (
         <div className={styles.container}>
+            <Head>
+                <title>Portfolio designs at beautiful prices</title>
+                <meta name="description" content="Come see beautiful and useable design examples to help you get your message to the world." />
+                <meta property="og:title" content="When less gives you more- Minimalist Portfolio" />
+                <meta
+                property="og:description"
+                content="In a world where we are bombarded with ads and visual clutter the minimalist portfolio lets your customers know who you really are."
+                />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <Header className={`${styles.header} ${Portfoliostyles.portfolioHeader}`}/>
             <main className={styles.main}>
                 <div className={Portfoliostyles.projectSectionsContainer}>{projectMap}</div>

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import styles from "../styles/Home.module.css"
 export default function ContactMeSection () {
     return (
@@ -5,7 +6,7 @@ export default function ContactMeSection () {
             <h1>Interested in doing a project together?</h1>
             <div className={styles.hrLine}></div>
             <div className={`${styles.btn} ${styles.contactMeBtn}`}>
-            <a href="#contact-me">CONTACT ME</a>
+            <Link href="/Contact">CONTACT ME</Link>
             </div>
       </section>
     )

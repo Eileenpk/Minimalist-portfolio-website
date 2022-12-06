@@ -1,0 +1,12 @@
+.span {
+    display: block;
+    color: #5FB4A2;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 30px;
+    margin-bottom: 24px;
+}
+
+.prevProject {
+    /* background-color: red; */
+}
