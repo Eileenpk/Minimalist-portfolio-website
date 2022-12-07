@@ -156,16 +156,16 @@ import useWindowSize from "./utils/useWindowSize";
                 </div>
 
                 <div className={projectPage.projectBackgroundContainer}>
-                    <h2 className={projectPage.header}>Project Background</h2>
+                    <h2 className={styles.subTitle}>Project Background</h2>
                     <p className={styles.pText}>
                         {project.projectBackgroundText}
                     </p>
-                    <h3 className={projectPage.header}>Static Previews</h3>
+                    <h3 className={styles.subTitle}>Static Previews</h3>
                     {   width < 650 ?
                         <div>
                             <Image 
                                 src={project.firstStaticPreviewPhotoMobile.url}
-                                className={styles.image}
+                                className={`${styles.image} ${projectPage.staticPhoto}`}
                                 alt={`${project} first static photo`}
                                 width={311}
                                 height={140}
@@ -173,7 +173,7 @@ import useWindowSize from "./utils/useWindowSize";
 
                             <Image 
                                 src={project.secondStaticPreviewPhotoMobile.url}
-                                className={styles.image}
+                                className={`${styles.image} ${projectPage.staticPhoto}`}
                                 alt={`${project} second static photo`}
                                 width={311}
                                 height={140}
@@ -183,7 +183,7 @@ import useWindowSize from "./utils/useWindowSize";
                         <div>
                             <Image 
                                 src={project.firstStaticPreviewPhotoTablet.url}
-                                className={styles.image}
+                                className={`${styles.image} ${projectPage.staticPhoto}`}
                                 alt={`${project} first static photo`}
                                 width={689}
                                 height={434}
@@ -191,7 +191,7 @@ import useWindowSize from "./utils/useWindowSize";
 
                             <Image 
                                 src={project.secondStaticPreviewPhotoTablet.url}
-                                className={styles.image}
+                                className={`${styles.image} ${projectPage.staticPhoto}`}
                                 alt={`${project} second static photo`}
                                 width={689}
                                 height={434}
@@ -201,7 +201,7 @@ import useWindowSize from "./utils/useWindowSize";
                         <div>
                             <Image 
                                 src={project.firstStaticPreviewPhotoFullWebsite.url}
-                                className={styles.image}
+                                className={`${styles.image} ${projectPage.staticPhoto}`}
                                 alt={`${project} first static photo`}
                                 width={635}
                                 height={400}
@@ -209,7 +209,7 @@ import useWindowSize from "./utils/useWindowSize";
 
                             <Image 
                                 src={project.secondStaticPreviewPhotoFullWebsite.url}
-                                className={styles.image}
+                                className={`${styles.image} ${projectPage.staticPhoto}`}
                                 alt={`${project} second static photo`}
                                 width={635}
                                 height={400}
@@ -228,7 +228,7 @@ import useWindowSize from "./utils/useWindowSize";
                             height={16}
                         />
                     </Link>
-                        <h4>{findPrevProject}</h4>
+                        <h4 className={styles.scrollProjectTitle} >{findPrevProject}</h4>
                         <p>Previous Project</p>
                     </div>
                     <div className={projectPage.nextProject}>
@@ -241,7 +241,7 @@ import useWindowSize from "./utils/useWindowSize";
                                 height={16}
                             />
                         </Link>
-                        <h4>{findNextProject}</h4>
+                        <h4 className={styles.scrollProjectTitle}>{findNextProject}</h4>
                         <p>Next Project</p>
                     </div>
                 </div>

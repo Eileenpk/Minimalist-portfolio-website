@@ -58,6 +58,7 @@ export default function Portfolio({ projects }) {
                     alt="hero"
                     width={311}
                     height={288}
+                    priority
                 />
                : width <1200 ?
                <Image 
@@ -66,6 +67,7 @@ export default function Portfolio({ projects }) {
                     alt="hero"
                     width={339}
                     height={314}
+                    priority
                 />
                 : 
                 <Image 
@@ -74,6 +76,7 @@ export default function Portfolio({ projects }) {
                     alt="hero"
                     width={540}
                     height={500}
+                    priority
                 />
             }
             </div>
