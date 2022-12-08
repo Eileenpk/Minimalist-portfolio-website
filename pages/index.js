@@ -1,21 +1,19 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import Header from "./Header";
-import Footer from "./Footer"
 import ContactMeSection from "./ContactMeSection";
-import { gql, GraphQLClient } from 'graphql-request'
+import { gql, GraphQLClient } from "graphql-request";
 import useWindowSize from "./utils/useWindowSize";
 
 export const getStaticProps = async () => {
-  const url = process.env.ENDPOINT
+  const url = process.env.ENDPOINT;
   const graphQLClient = new GraphQLClient(url, {
     headers: {
-      'Authorization' : process.env.GRAPH_CMS_TOKEN
-    }
-  })
+      Authorization: process.env.GRAPH_CMS_TOKEN,
+    },
+  });
   const query = gql`
-    query{
+    query {
       sections {
         title
         slug
@@ -41,113 +39,126 @@ export const getStaticProps = async () => {
         }
       }
     }
-    `
-    const data = await graphQLClient.request(query)
-    const sections = data.sections
-    
-    return {
-      props: {
-        sections
-      }
-    }
-}
+  `;
+  const data = await graphQLClient.request(query);
+  const sections = data.sections;
 
+  return {
+    props: {
+      sections,
+    },
+  };
+};
 
-export default function Home({sections}) {
+export default function Home({ sections }) {
   const { width } = useWindowSize();
   return (
-    <div className={styles.container} id='home'>
+    <div
+      className="container mx-auto flex-col justify-center items-center bg-main-color   max-w-[1110px] m-0 "
+      id="home"
+    >
       <Head>
-        <title>Minimalist portfolio website beautiful design at a beautiful price</title>
-        <meta name="description" content="Come see how we create beautiful and useable design to help you get your message to the world." />
-        <meta property="og:title" content="When less gives you more- Minimalist Portfolio" />
+        <title>
+          Minimalist portfolio website beautiful design at a beautiful price
+        </title>
+        <meta
+          name="description"
+          content="Come see how we create beautiful and useable design to help you get your message to the world."
+        />
+        <meta
+          property="og:title"
+          content="When less gives you more- Minimalist Portfolio"
+        />
         <meta
           property="og:description"
           content="In a world where we are bombarded with ads and visual clutter the minimalist portfolio lets your customers know who you really are."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header className={styles.header} />
-      <main className={styles.main}>
-        <section className={styles.aboutMe}>
-      { width < 600 ?
-        <Image 
-          src={sections[0].heroPhotoMobile.url}
-          className={styles.image}
-          alt="hero"
-          width={400}
-          height={400}
-        />
-        : width < 1000 ?
-        <Image 
-          src={sections[0].heroPhotoTablet.url}
-          className={styles.image}
-          alt="hero"
-          width={688}
-          height={600}
-        />
-        :
-        <Image 
-          src={sections[0].heroPhotoFullWebsite.url}
-          className={styles.image}
-          alt="hero"
-          width={1110}
-          height={600}
-        />
-        }
-            <div className={styles.aboutMeHeroText}>
-              <h1 className={styles.title}>
-                {sections[0].tagLine}
-              </h1>
-              <div className={`${styles.btn} ${styles.aboutMeBtn}`}>
-                  <div className={styles.btnIconContainer}>
-                    <img className={styles.btnIcon} src='../images/down-arrows.svg'/>
-                  </div>
-                  <a href="#about-me">ABOUT ME</a>
-              </div>
+      <Header />
+      <section className="md:relative">
+        {width < 600 ? (
+          <Image
+            src={sections[0].heroPhotoMobile.url}
+            alt="hero"
+            width={400}
+            height={400}
+          />
+        ) : width < 1000 ? (
+          <Image
+            src={sections[0].heroPhotoTablet.url}
+            alt="hero"
+            width={688}
+            height={600}
+          />
+        ) : (
+          <Image
+            src={sections[0].heroPhotoFullWebsite.url}
+            alt="hero"
+            width={1110}
+            height={600}
+          />
+        )}
+        <div className="max-sm:mt-6 max-md:mt-14 bg-main-color md:absolute md:top-[322px] md:w-[514px] md:h-[278px] md:flex md:flex-col">
+          <h1
+            className=" heading max-sm:mb-8 max-sm: w-full md:w-[458px] md:h-[126px] md:mt-[56px] leading-[42px] md:mb-[48px]
+            "
+          >
+            {sections[0].tagLine}
+          </h1>
+          <div className="bg-btn-color w-48 h-12 flex items-center text-main-color tracking-widest md:justify-self-end">
+            <div className=" bg-btn-second-color w-12 h-12 flex flex-col justify-center items-center">
+              <Image
+                src="/images/down-arrows.svg"
+                alt="down arrows logo"
+                width={16}
+                height={12}
+              />
             </div>
-        </section>
-        <section className={styles.aboutMeSection}>
-          <div className={styles.avatarContainer}>
-            { width < 600 ?
-                <Image 
-                  src={sections[0].secondPhotoMobile.url}
-                  className={styles.image}
-                  alt="Avatar"
-                  width={311}
-                  height={346}
-                /> :
-                width < 1000 ?
-                <Image 
-                  src={sections[0].secondPhotoTablet.url}
-                  className={styles.avatar}
-                  alt="Avatar"
-                  width={281}
-                  height={600}
-                />    
-                :
-                <Image 
-                  src={sections[0].secondPhotoFullWebsite.url}
-                  className={styles.image}
-                  alt="Avatar"
-                  width={540}
-                  height={600}
-                />        
-              }
+            <a href="#about-me" className="w-36 text-center">
+              ABOUT ME
+            </a>
           </div>
-          <div className={styles.aboutMeText} id='about-me'>
-            <h1>{sections[0].title}</h1>
-            <p className={styles.pText}>{sections[0].descriptionText}</p>
-            <div className={styles.btn}>
-              <a href="#portfolio">GO TO PORTFOLIO</a>
-            </div>
+        </div>
+      </section>
+      <section className="mt-24 md:flex justify-between md:max-w-[1015px]">
+        <div className="mb-8">
+          {width < 600 ? (
+            <Image
+              src={sections[0].secondPhotoMobile.url}
+              alt="Avatar"
+              width={311}
+              height={346}
+            />
+          ) : width < 1000 ? (
+            <Image
+              src={sections[0].secondPhotoTablet.url}
+              alt="Avatar"
+              width={281}
+              height={600}
+            />
+          ) : (
+            <Image
+              src={sections[0].secondPhotoFullWebsite.url}
+              alt="Avatar"
+              width={540}
+              height={600}
+            />
+          )}
+        </div>
+        <div
+          className="about-me-section border-t-border-color border-t border-b border-b-border-color pt-8 mb-[115px] md:w-[339px]"
+          id="about-me"
+        >
+          <h1 className="heading mb-7">{sections[0].title}</h1>
+          <p className="mb-6">{sections[0].descriptionText}</p>
+          <div className="btn mb-[51px]">
+            <a href="#portfolio">GO TO PORTFOLIO</a>
           </div>
-        </section>
-        
-        <ContactMeSection />
-      </main>
+        </div>
+      </section>
 
-      <Footer className={styles.footer}/>
+      <ContactMeSection />
     </div>
   );
 }

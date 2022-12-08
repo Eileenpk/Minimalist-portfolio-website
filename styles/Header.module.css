@@ -1,11 +1,11 @@
-.nav {
+/* .nav {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
+} */
 
 /* Btns */
-
+/* 
 .button,
 .button .nav {
     margin-left: auto;
@@ -16,10 +16,10 @@
 .button:hover,
 .button:active {
     cursor: pointer;
-}
+} */
 
 /* Nav links type */
-.navlinks,
+/* .navlinks,
 .longNavLinks {
     font-family: var(--font-family);
     font-size: 12px;
@@ -33,9 +33,9 @@
 }
 .longNavLinks {
     color: var(--font-color);
-}
+} */
 /* Nav links */
-.navContainer {
+/* .navContainer {
     margin-left: auto;     
 }
 .navlinks{
@@ -73,4 +73,4 @@
     }
 }
 
-
+ */

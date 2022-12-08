@@ -12,41 +12,41 @@ export default function Header({ className }) {
   };
 
   return (
-    <header className={className}>
+    <header className="flex justify-between items-center static mb-10 w-full max-w-[1110px] pt-8">
       <Image
-        className={styles.logo}
+        className=""
         src="/images/logo.svg"
         alt="Logo"
         width={60}
         height={32}
       />
       {width >= 600 ? (
-        <NavLinks className={styles.longNavLinks} />
+        <NavLinks />
       ) : (
-        <div className={styles.navContainer}>
-          {!isClicked ? (
-            <button onClick={handleClick} className={styles.button}>
-              <Image
-                className={styles.hamburger}
-                src="/images/hamburger.svg"
-                width={24}
-                height={13}
-                alt="open nav links"
-              />
-            </button>
-          ) : (
-            <nav className={styles.nav}>
-              <button onClick={handleClick} className={styles.button}>
+        <div>
+          {isClicked ? (
+            <nav>
+              <button onClick={handleClick}>
                 <Image
-                  className={styles.close}
                   src="/images/close.svg"
                   width={18}
                   height={18}
                   alt="open nav links"
                 />
               </button>
-              <NavLinks className={styles.navlinks} />
+              <div className="max-sm:bg-heading-color max-sm:h-44 max-sm:w-56 max-sm:text-main-color max-sm:py-10 max-sm:absolute max-sm:right-7 max-sm:top-20 ">
+                <NavLinks />
+              </div>
             </nav>
+          ) : (
+            <button onClick={handleClick} className={styles.button}>
+              <Image
+                src="/images/hamburger.svg"
+                width={24}
+                height={13}
+                alt="open nav links"
+              />
+            </button>
           )}
         </div>
       )}
