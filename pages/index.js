@@ -77,15 +77,17 @@ export default function Home({ sections }) {
       </Head>
       <Header />
       <section className="md:relative">
-        {width < 600 ? (
+        {width < 768 ? (
           <Image
+            className="img"
             src={sections[0].heroPhotoMobile.url}
             alt="hero"
             width={400}
             height={400}
           />
-        ) : width < 1000 ? (
+        ) : width < 1024 ? (
           <Image
+            className="img"
             src={sections[0].heroPhotoTablet.url}
             alt="hero"
             width={688}
@@ -93,6 +95,7 @@ export default function Home({ sections }) {
           />
         ) : (
           <Image
+            className="img"
             src={sections[0].heroPhotoFullWebsite.url}
             alt="hero"
             width={1110}
