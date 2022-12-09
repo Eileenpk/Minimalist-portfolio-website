@@ -1,3 +1,6 @@
 {
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "editor.minimap.enabled": false,
+  "editor.minimap.autohide": false,
+  "editor.minimap.renderCharacters": false
 }

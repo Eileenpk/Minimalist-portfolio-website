@@ -1,5 +1,4 @@
 import Link from "next/link"
-import styles from "../styles/Home.module.css"
 export default function ContactMeSection () {
     return (
         <section className='w-full flex items-center max-sm:flex-col max-sm:justify-center md:justify-between md:mb-[96px] lg:mb-[150px]'>

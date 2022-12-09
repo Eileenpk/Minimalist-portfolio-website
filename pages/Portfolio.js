@@ -1,10 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import Portfoliostyles from "../styles/Portfolio.module.css";
 import Header from "./Header";
-import Footer from "./Footer";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
 import useWindowSize from "./utils/useWindowSize";

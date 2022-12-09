@@ -7,7 +7,7 @@ import { PublicSans, IbarraRealNova} from '@next/font/google'
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <main className='container min-w-full m-0 p-0 mx-auto bg-main-color px-8 font-text text-font-color text-base leading-[30px] flex flex-col justify-center items-center'>
+    <main className='container min-w-full m-0 p-0 mx-auto bg-main-color px-8 font-text text-font-color text-base flex flex-col justify-center items-center md:text-base'>
       <Component {...pageProps} />
       <Footer className='footer' />
     </main>

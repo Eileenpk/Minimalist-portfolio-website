@@ -22,6 +22,7 @@ module.exports = {
       'light-font-color': '96969c',
       'border-color': '#dcdcde',
       'hover-color':'#5FB4A2',
+      'form-input-color': '#e6e6e7',
     },
     fontFamily: {
       text: ['Public Sans', 'sans-serif'],

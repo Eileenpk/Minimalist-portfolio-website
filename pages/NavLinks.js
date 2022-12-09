@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function NavLinks({ className }) {
+export default function NavLinks() {
   return (
     <div className="max-sm:flex max-sm:flex-col max-sm:justify-between max-sm:items-center text-xs h-full tracking-[2px]">
       <Link

@@ -154,7 +154,7 @@ export default function Home({ sections }) {
           id="about-me"
         >
           <h1 className="heading mb-7">{sections[0].title}</h1>
-          <p className="mb-6">{sections[0].descriptionText}</p>
+          <p className="mb-6 ">{sections[0].descriptionText}</p>
           <div className="btn mb-[51px]">
             <a href="#portfolio">GO TO PORTFOLIO</a>
           </div>

@@ -1,9 +1,9 @@
-import styles from "../styles/Header.module.css";
+
 import Image from "next/image";
 import NavLinks from "./NavLinks";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useWindowSize from "./utils/useWindowSize";
-export default function Header({ className }) {
+export default function Header() {
   const { width } = useWindowSize();
   // add clicked state to btn
   const [isClicked, setIsClicked] = useState(false);
@@ -39,7 +39,7 @@ export default function Header({ className }) {
               </div>
             </nav>
           ) : (
-            <button onClick={handleClick} className={styles.button}>
+            <button onClick={handleClick} >
               <Image
                 src="/images/hamburger.svg"
                 width={24}
