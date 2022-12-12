@@ -23,6 +23,7 @@ module.exports = {
       'border-color': '#dcdcde',
       'hover-color':'#5FB4A2',
       'form-input-color': '#e6e6e7',
+      'error-color': '#F43030'
     },
     fontFamily: {
       text: ['Public Sans', 'sans-serif'],

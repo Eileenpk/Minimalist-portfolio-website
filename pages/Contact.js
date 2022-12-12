@@ -54,6 +54,9 @@ export default function Contact({ sections }) {
     name: "",
     email: "",
     message: "",
+    nameError: "",
+    emailError: "",
+    messageError:"",
   });
 
   function handleChange(event) {
@@ -65,14 +68,71 @@ export default function Contact({ sections }) {
       };
     });
   }
-  console.log(contactForm);
+
+  const handleFormErrors = () => {
+    let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!emailRegex.test(contactForm.email)) {
+      setContactForm((prevContactForm) => {
+        return {
+          ...prevContactForm,
+          emailError: "Not a valid email",
+        };
+      });
+    } else if(emailRegex.test(contactForm.email)) {
+      setContactForm((prevContactForm) => {
+        return {
+          ...prevContactForm,
+          emailError: "",
+        };
+      });
+    }
+
+    
+    if (!contactForm.name) {
+      setContactForm(prevContactForm => {
+        return {
+          ...prevContactForm,
+          nameError: "This field is required",
+        }
+      })
+    }else {
+      setContactForm(prevContactForm => {
+        return{
+          ...prevContactForm,
+          nameError: ''
+        }
+    })
+    }
+    if(!contactForm.message) {
+      setContactForm(prevContactForm => {
+        return{
+          ...prevContactForm,
+          messageError: "This field is required"
+        }
+      })
+    }else {
+      setContactForm(prevContactForm => {
+        return{
+          ...prevContactForm,
+          messageError: ''
+        }
+      })
+    }
+   
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleFormErrors();
+  };
+
   return (
     <div className="container mx-auto flex-col justify-center items-center max-w-[1110px]">
       <Header />
       <main>
-        <div className="border-t-border-color border-t border-b border-b-border-color mb-8 pt-6 lg:flex justify-between">
-          <h1 className="heading mb-6">{sections[1].title}</h1>
-          <div className='lg:w-[635px]'>
+        <div className="justify-between pt-6 mb-8 border-t border-b border-t-border-color border-b-border-color lg:flex">
+          <h1 className="mb-6 heading">{sections[1].title}</h1>
+          <div className="lg:w-[635px]">
             <p>{sections[1].descriptionText}</p>
             <div className=" w-[104px] mt-6 mb-8 max-sm:mb-14 flex justify-between">
               <a href="https://github.com/Eileenpk">
@@ -103,18 +163,18 @@ export default function Contact({ sections }) {
             </div>
           </div>
         </div>
-        <div className='lg:flex justify-between'>
-          <h2 className="heading mb-6">Contact Me</h2>
+        <div className="justify-between lg:flex">
+          <h2 className="mb-6 heading">Contact Me</h2>
           <form className="contactMeForm flex flex-col lg:w-[635px]">
             <label
               for="name"
               aria-label="name"
-              className="text-heading-color font-bold mb-2"
+              className="mb-2 font-bold text-heading-color"
             >
               Name
             </label>
             <input
-              className="bg-form-input-color h-12 indent-4 mb-6"
+              className={`h-12 mb-6 bg-form-input-color indent-4 ${contactForm.nameError? 'border border-solid border-error-color mb-1' : ''}`}
               id="name"
               type="text"
               placeholder="Jane Appleseed"
@@ -122,15 +182,16 @@ export default function Contact({ sections }) {
               name="name"
               value={contactForm.name}
             />
+            <div className='mb-6 text-xs text-error-color'>{contactForm.nameError}</div>
             <label
               for="email"
               aria-label="email"
-              className="text-heading-color font-bold mb-2"
+              className="mb-2 font-bold text-heading-color"
             >
               Email Address
             </label>
             <input
-              className="bg-form-input-color h-12 indent-4 mb-6"
+              className={`h-12 mb-6 bg-form-input-color indent-4 ${contactForm.emailError? 'border border-solid border-error-color mb-1' : ''}`}
               id="email"
               type="text"
               placeholder="email@example.com"
@@ -138,23 +199,27 @@ export default function Contact({ sections }) {
               name="email"
               value={contactForm.email}
             />
+            <div className='mb-6 text-xs text-error-color'>{contactForm.emailError ? contactForm.emailError : '' }</div>
             <label
               for="message"
               aria-label="message"
-              className="text-heading-color font-bold mb-2"
+              className="mb-2 font-bold text-heading-color"
             >
               Message
             </label>
             <textarea
-              className="bg-form-input-color h-12 indent-4 mb-6"
+              className={`h-16 mb-6 bg-form-input-color indent-4 ${contactForm.messageError? 'border border-solid border-error-color mb-1' : ''}`}
               id="message"
               value={contactForm.message}
               placeholder="How can I help?"
               onChange={handleChange}
               name="message"
             />
-
-            <div className="btn bg-btn-color text-main-color mb-20">
+            <div className='mb-6 text-xs text-error-color'>{contactForm.messageError}</div>
+            <div
+              className="mb-20 btn bg-btn-color text-main-color"
+              onClick={handleSubmit}
+            >
               <Link href={""}>SEND MESSAGE</Link>
             </div>
           </form>
