@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import useWindowSize from "../utils/useWindowSize";
+import UseWindowSize from "../utils/useWindowSize";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -43,7 +43,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Portfolio({ projects }) {
-  const { width } = useWindowSize();
+  const { width } = UseWindowSize();
   const projectMap = projects.map((project) => {
     return (
       <section className='md:flex items-center justify-between md:w-full lg:max-w-[1015px] lg:h-[500px] md:mb-[88px] lg:mb-[80px]' key={project.slug}>

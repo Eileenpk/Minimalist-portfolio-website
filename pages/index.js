@@ -3,7 +3,7 @@ import Image from "next/image";
 import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import useWindowSize from "../utils/useWindowSize";
+import UseWindowSize from "../utils/useWindowSize";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -51,7 +51,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ sections }) {
-  const { width } = useWindowSize();
+  const { width } = UseWindowSize();
   return (
     <div
       className="container mx-auto flex-col justify-center items-center bg-main-color   max-w-[1110px] m-0 "
@@ -110,7 +110,7 @@ export default function Home({ sections }) {
             {sections[0].tagLine}
           </h1>
           <div className="flex items-center w-48 h-12 tracking-widest bg-btn-color text-main-color md:justify-self-end">
-            <div className="flex flex-col items-center justify-center w-12 h-12  bg-btn-second-color">
+            <div className="flex flex-col items-center justify-center w-12 h-12 bg-btn-second-color">
               <Image
                 src="/images/down-arrows.svg"
                 alt="down arrows logo"

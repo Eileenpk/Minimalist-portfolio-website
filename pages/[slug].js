@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import useWindowSize from "../utils/useWindowSize";
+import UseWindowSize from "../utils/useWindowSize";
 
 export const getServerSideProps = async (pageContext) => {
   const url = process.env.ENDPOINT;
@@ -82,7 +82,7 @@ export const getServerSideProps = async (pageContext) => {
 };
 
 export default function page({ projects, projectsArray }) {
-  const { width } = useWindowSize();
+  const { width } = UseWindowSize();
   const projectMap = projects.map((project) => {
     const currentSlug = projects[0].slug;
     const slugsArray = projectsArray.map((item) => item.slug);
