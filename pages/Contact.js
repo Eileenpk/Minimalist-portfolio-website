@@ -165,9 +165,13 @@ export default function Contact({ sections }) {
         </div>
         <div className="justify-between lg:flex">
           <h2 className="mb-6 heading">Contact Me</h2>
-          <form className="contactMeForm flex flex-col lg:w-[635px]">
+          
+          <form 
+            className="contactMeForm flex flex-col lg:w-[635px]"
+            onSubmit={handleSubmit}
+          >
             <label
-              for="name"
+              htmlFor="name"
               aria-label="name"
               className="mb-2 font-bold text-heading-color"
             >
@@ -184,7 +188,7 @@ export default function Contact({ sections }) {
             />
             <div className='mb-6 text-xs text-error-color'>{contactForm.nameError}</div>
             <label
-              for="email"
+              htmlFor="email"
               aria-label="email"
               className="mb-2 font-bold text-heading-color"
             >
@@ -201,7 +205,7 @@ export default function Contact({ sections }) {
             />
             <div className='mb-6 text-xs text-error-color'>{contactForm.emailError ? contactForm.emailError : '' }</div>
             <label
-              for="message"
+              htmlFor="message"
               aria-label="message"
               className="mb-2 font-bold text-heading-color"
             >
@@ -216,12 +220,12 @@ export default function Contact({ sections }) {
               name="message"
             />
             <div className='mb-6 text-xs text-error-color'>{contactForm.messageError}</div>
-            <div
+            <button
               className="mb-20 btn bg-btn-color text-main-color"
-              onClick={handleSubmit}
+              type="submit"
             >
-              <Link href={""}>SEND MESSAGE</Link>
-            </div>
+              SEND MESSAGE
+            </button>
           </form>
         </div>
       </main>

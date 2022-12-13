@@ -51,7 +51,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ sections }) {
-  const { width } = WindowSize();
+  const { width }  = WindowSize();
   return (
     <div
       className="container mx-auto flex-col justify-center items-center bg-main-color   max-w-[1110px] m-0 "

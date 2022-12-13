@@ -3,7 +3,7 @@ import NavLinks from "./NavLinks";
 import { useState } from "react";
 import WindowSize from "./utils/WindowSize";
 export default function Header() {
-  const { width } = WindowSize();
+  const { width }  = WindowSize();
   // add clicked state to btn
   const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
