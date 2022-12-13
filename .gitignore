@@ -28,6 +28,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# Ignore files related to API keys
+.env
+
 # vercel
 .vercel
 
