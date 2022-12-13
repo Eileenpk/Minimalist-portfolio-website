@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import UseWindowSize from "../utils/useWindowSize";
+import WindowSize from "./utils/WindowSize";
 
 export const getServerSideProps = async (pageContext) => {
   const url = process.env.ENDPOINT;
@@ -82,7 +82,7 @@ export const getServerSideProps = async (pageContext) => {
 };
 
 export default function page({ projects, projectsArray }) {
-  const { width } = UseWindowSize();
+  const { width } = WindowSize();
   const projectMap = projects.map((project) => {
     const currentSlug = projects[0].slug;
     const slugsArray = projectsArray.map((item) => item.slug);
@@ -108,7 +108,7 @@ export default function page({ projects, projectsArray }) {
     });
 
     return (
-      <section className='PortfolioStyle' key={project.slug}>
+      <section className="PortfolioStyle" key={project.slug}>
         <div className=" hero mb-10 lg:mb-[115px]">
           {width < 650 ? (
             <Image
@@ -268,9 +268,7 @@ export default function page({ projects, projectsArray }) {
       </Head>
       <Header />
       <main className="container mx-auto flex-col justify-center items-center bg-main-color   max-w-[1110px] m-0 ">
-        <div>
-          {projectMap}
-        </div>
+        <div>{projectMap}</div>
         <ContactMeSection />
       </main>
     </div>

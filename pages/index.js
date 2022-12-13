@@ -3,7 +3,7 @@ import Image from "next/image";
 import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import UseWindowSize from "../utils/useWindowSize";
+import WindowSize from "./utils/WindowSize";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -51,7 +51,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ sections }) {
-  const { width } = UseWindowSize();
+  const { width } = WindowSize();
   return (
     <div
       className="container mx-auto flex-col justify-center items-center bg-main-color   max-w-[1110px] m-0 "

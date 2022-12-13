@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import UseWindowSize from "../utils/useWindowSize";
+import WindowSize from "./utils/WindowSize";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -43,10 +43,13 @@ export const getStaticProps = async () => {
 };
 
 export default function Portfolio({ projects }) {
-  const { width } = UseWindowSize();
+  const { width } = WindowSize();
   const projectMap = projects.map((project) => {
     return (
-      <section className='md:flex items-center justify-between md:w-full lg:max-w-[1015px] lg:h-[500px] md:mb-[88px] lg:mb-[80px]' key={project.slug}>
+      <section
+        className="md:flex items-center justify-between md:w-full lg:max-w-[1015px] lg:h-[500px] md:mb-[88px] lg:mb-[80px]"
+        key={project.slug}
+      >
         <div className="max-sm:mb-8 ">
           {width < 650 ? (
             <Image
@@ -108,7 +111,9 @@ export default function Portfolio({ projects }) {
       </Head>
       <Header />
       <main>
-        <div className='projectSectionsContainer md:flex md:flex-col md:mb-20 lg:mb-[150px]'>{projectMap}</div>
+        <div className="projectSectionsContainer md:flex md:flex-col md:mb-20 lg:mb-[150px]">
+          {projectMap}
+        </div>
         <ContactMeSection />
       </main>
     </div>

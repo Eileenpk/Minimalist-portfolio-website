@@ -1,10 +1,9 @@
-
 import Image from "next/image";
 import NavLinks from "./NavLinks";
 import { useState } from "react";
-import UseWindowSize from "../utils/UseWindowSize";
+import WindowSize from "./utils/WindowSize";
 export default function Header() {
-  const { width } = UseWindowSize();
+  const { width } = WindowSize();
   // add clicked state to btn
   const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
@@ -39,7 +38,7 @@ export default function Header() {
               </div>
             </nav>
           ) : (
-            <button onClick={handleClick} >
+            <button onClick={handleClick}>
               <Image
                 src="/images/hamburger.svg"
                 width={24}
