@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import useWindowSize from "./utils/useWindowSize";
+import useWindowSize from "../utils/useWindowSize";
 
 export const getServerSideProps = async (pageContext) => {
   const url = process.env.ENDPOINT;
@@ -142,7 +142,7 @@ export default function page({ projects, projectsArray }) {
           <p className="text mb-6 md:max-w-[339px]">
             {project.textDescription}
           </p>
-          <span className="highlightedText text-hover-color font-bold block max-sm:mb-6 md:mb-4 ">
+          <span className="block font-bold highlightedText text-hover-color max-sm:mb-6 md:mb-4 ">
             Interaction Design / Front End Development <br />
             HTML / CSS / JS{" "}
           </span>
@@ -154,12 +154,12 @@ export default function page({ projects, projectsArray }) {
         <div className="projectBackground lg:w-[635px]">
           <h2 className="subheading mb-7">Project Background</h2>
           <p className="mb-10">{project.projectBackgroundText}</p>
-          <h3 className="subheading mb-10">Static Previews</h3>
+          <h3 className="mb-10 subheading">Static Previews</h3>
           {width < 650 ? (
             <div>
               <Image
                 src={project.firstStaticPreviewPhotoMobile.url}
-                className="img mb-8"
+                className="mb-8 img"
                 alt={`${project} first static photo`}
                 width={311}
                 height={140}
@@ -167,7 +167,7 @@ export default function page({ projects, projectsArray }) {
 
               <Image
                 src={project.secondStaticPreviewPhotoMobile.url}
-                className="img mb-16"
+                className="mb-16 img"
                 alt={`${project} second static photo`}
                 width={311}
                 height={140}
@@ -177,7 +177,7 @@ export default function page({ projects, projectsArray }) {
             <div>
               <Image
                 src={project.firstStaticPreviewPhotoTablet.url}
-                className="img mb-8"
+                className="mb-8 img"
                 alt={`${project} first static photo`}
                 width={689}
                 height={434}
@@ -185,7 +185,7 @@ export default function page({ projects, projectsArray }) {
 
               <Image
                 src={project.secondStaticPreviewPhotoTablet.url}
-                className="img mb-16"
+                className="mb-16 img"
                 alt={`${project} second static photo`}
                 width={689}
                 height={434}
@@ -195,7 +195,7 @@ export default function page({ projects, projectsArray }) {
             <div>
               <Image
                 src={project.firstStaticPreviewPhotoFullWebsite.url}
-                className="img mb-8"
+                className="mb-8 img"
                 alt={`${project} first static photo`}
                 width={635}
                 height={400}
@@ -203,7 +203,7 @@ export default function page({ projects, projectsArray }) {
 
               <Image
                 src={project.secondStaticPreviewPhotoFullWebsite.url}
-                className="img mb-16"
+                className="mb-16 img"
                 alt={`${project} second static photo`}
                 width={635}
                 height={400}
@@ -212,14 +212,14 @@ export default function page({ projects, projectsArray }) {
           )}
         </div>
         <div className="projectScroll border-t border-t-border-color border-b border-b-border-color h-[148px] flex mb-16 lg:mb-[115px]">
-          <div className="border-r border-r-border-color py-6 w-1/2 md:flex justify-start md:py-8">
+          <div className="justify-start w-1/2 py-6 border-r border-r-border-color md:flex md:py-8">
             <Link
-              className="prevProjectContainer flex flex-col justify-around"
+              className="flex flex-col justify-around prevProjectContainer"
               href={`/${findPrevProject.join("")}`}
             >
               <Image
                 src="/images/arrow-left.svg"
-                className="prevArrowIcon mb-4"
+                className="mb-4 prevArrowIcon"
                 alt="left arrow"
                 width={8}
                 height={16}
@@ -228,14 +228,14 @@ export default function page({ projects, projectsArray }) {
               <p className="prevText text-light-font-color">Previous Project</p>
             </Link>
           </div>
-          <div className="py-6 w-1/2 flex justify-end md:py-8">
+          <div className="flex justify-end w-1/2 py-6 md:py-8">
             <Link
-              className="nextProjectContainer flex flex-col justify-around items-end "
+              className="flex flex-col items-end justify-around nextProjectContainer "
               href={`/${findNextProject.join("")}`}
             >
               <Image
                 src="/images/arrow-right.svg"
-                className="nextArrowIcon mb-4"
+                className="mb-4 nextArrowIcon"
                 alt="right arrow"
                 width={8}
                 height={16}

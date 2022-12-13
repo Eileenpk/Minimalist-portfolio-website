@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import useWindowSize from "./utils/useWindowSize";
+import useWindowSize from "../utils/useWindowSize";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -79,9 +79,9 @@ export default function Portfolio({ projects }) {
         </div>
 
         <div className="border-t border-t-border-color pt-6 border-b border-b-border-color pb-6 max-sm:mb-[72px] md:w-[281px] lg:h-[500px] lg:flex lg:flex-col lg:justify-center">
-          <h1 className="heading mb-6">{project.title}</h1>
+          <h1 className="mb-6 heading">{project.title}</h1>
           <p className="mb-6">{project.textDescription}</p>
-          <div className="btn mb-6">
+          <div className="mb-6 btn">
             <Link href={`/${project.slug}`}>VIEW PROJECT</Link>
           </div>
         </div>
