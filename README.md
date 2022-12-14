@@ -41,7 +41,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub](https://github.com/Eileenpk/Minimalist-portfolio-website)
-- Live Site URL: [live site](https://minimalist-portfolio-website-6lc8k28hk-eileenpk.vercel.app/)
+- Live Site URL: [live site](https://minimalist-portfolio-website-git-main-eileenpk.vercel.app/)
 
 ### Built with
 
