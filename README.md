@@ -36,8 +36,8 @@ Users should be able to:
   - The `Email Address` is not formatted correctly should show error message
 ### Screenshot
 
-![screen shot of full screen webpage](https://github.com/Eileenpk/order-summary-component/blob/main/images/Screenshot-full-website.png)
-![screen shot of mobile webpage](https://github.com/Eileenpk/Minimalist-portfolio-website/blob/main/images/Screenshot-mobile.png)
+![screen shot of full screen webpage](https://github.com/Eileenpk/Minimalist-portfolio-website/blob/main/public/images/full-website.png)
+![screen shot of mobile webpage](https://github.com/Eileenpk/Minimalist-portfolio-website/blob/main/public/images/mobile.png)
 ### Links
 
 - Solution URL: [GitHub](https://github.com/Eileenpk/Minimalist-portfolio-website)
