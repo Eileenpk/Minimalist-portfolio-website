@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
 import WindowSize from "./utils/WindowSize";
@@ -214,6 +213,7 @@ export default function page({ projects, projectsArray }) {
         <div className="projectScroll border-t border-t-border-color border-b border-b-border-color h-[148px] flex mb-16 lg:mb-[115px]">
           <div className="justify-start w-1/2 py-6 border-r border-r-border-color md:flex md:py-8">
             <Link
+              aria-label="go to previous project button"
               className="flex flex-col justify-around prevProjectContainer"
               href={`/${findPrevProject.join("")}`}
             >
@@ -230,6 +230,7 @@ export default function page({ projects, projectsArray }) {
           </div>
           <div className="flex justify-end w-1/2 py-6 md:py-8">
             <Link
+              aria-label="go to next project button"
               className="flex flex-col items-end justify-around nextProjectContainer "
               href={`/${findNextProject.join("")}`}
             >
@@ -254,19 +255,18 @@ export default function page({ projects, projectsArray }) {
         <title>Portfolio designs at beautiful prices</title>
         <meta
           name="description"
-          content="Come see beautiful and useable design examples to help you get your message to the world."
+          content={`visit our ${projects.map(project => project.title)} to see how we have helped others make their dreams come true`}
         />
         <meta
           property="og:title"
-          content="When less gives you more- Minimalist Portfolio"
+          content={`visit our ${projects.map(project => project.title)} to see how we have helped others make their dreams come true`}
         />
         <meta
           property="og:description"
-          content="In a world where we are bombarded with ads and visual clutter the minimalist portfolio lets your customers know who you really are."
+          content={`visit our ${projects.map(project => project.title)} to see how we have helped others make their dreams come true`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className="container mx-auto flex-col justify-center items-center bg-main-color   max-w-[1110px] m-0 ">
         <div>{projectMap}</div>
         <ContactMeSection />

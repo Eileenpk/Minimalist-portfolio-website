@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
 import WindowSize from "./utils/WindowSize";
@@ -85,7 +84,7 @@ export default function Portfolio({ projects }) {
           <h1 className="mb-6 heading">{project.title}</h1>
           <p className="mb-6">{project.textDescription}</p>
           <div className="mb-6 btn">
-            <Link href={`/${project.slug}`}>VIEW PROJECT</Link>
+            <Link href={`/${project.slug}`} aria-label={`go to ${project.slug} page link`}>VIEW PROJECT</Link>
           </div>
         </div>
       </section>
@@ -109,7 +108,6 @@ export default function Portfolio({ projects }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main>
         <div className="projectSectionsContainer md:flex md:flex-col md:mb-20 lg:mb-[150px]">
           {projectMap}

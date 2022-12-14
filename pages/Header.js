@@ -25,7 +25,7 @@ export default function Header() {
         <div>
           {isClicked ? (
             <nav>
-              <button onClick={handleClick}>
+              <button onClick={handleClick} aria-label="close navbar button">
                 <Image
                   src="/images/close.svg"
                   width={18}
@@ -38,7 +38,7 @@ export default function Header() {
               </div>
             </nav>
           ) : (
-            <button onClick={handleClick}>
+            <button onClick={handleClick} aria-label="open navbar button">
               <Image
                 src="/images/hamburger.svg"
                 width={24}

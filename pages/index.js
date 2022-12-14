@@ -1,10 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import Header from "./Header";
 import ContactMeSection from "./ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
 import WindowSize from "./utils/WindowSize";
-
+import Link from "next/link";
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
   const graphQLClient = new GraphQLClient(url, {
@@ -51,7 +50,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ sections }) {
-  const { width }  = WindowSize();
+  const { width } = WindowSize();
   return (
     <div
       className="container mx-auto flex-col justify-center items-center bg-main-color   max-w-[1110px] m-0 "
@@ -75,7 +74,7 @@ export default function Home({ sections }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+
       <section className="md:relative">
         {width < 768 ? (
           <Image
@@ -118,7 +117,11 @@ export default function Home({ sections }) {
                 height={12}
               />
             </div>
-            <a href="#about-me" className="text-center w-36">
+            <a
+              href="#about-me"
+              className="text-center w-36"
+              aria-label="about me button"
+            >
               ABOUT ME
             </a>
           </div>
@@ -155,9 +158,16 @@ export default function Home({ sections }) {
         >
           <h1 className="heading mb-7">{sections[0].title}</h1>
           <p className="mb-6 ">{sections[0].descriptionText}</p>
-          <div className="btn mb-[51px]">
-            <a href="#portfolio">GO TO PORTFOLIO</a>
-          </div>
+
+          <Link
+            aria-label="go to portfolio button"
+            className="flex flex-col justify-around prevProjectContainer"
+            href="/Portfolio"
+          >
+            <div className="btn mb-[51px]" >
+              GO TO PORTFOLIO
+            </div>
+          </Link>
         </div>
       </section>
 

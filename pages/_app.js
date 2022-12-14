@@ -1,13 +1,12 @@
 import '../styles/globals.css'
+import Header from './Header'
 import Footer from './Footer'
-import { PublicSans, IbarraRealNova} from '@next/font/google'
 
-// If loading a variable font, you don't need to specify the font weight
-// const inter = Inter({ subsets: ['latin'] })
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <main className='container min-w-full m-0 p-0 mx-auto bg-main-color px-8 font-text text-font-color text-base flex flex-col justify-center items-center md:text-base'>
+    <main className='container flex flex-col items-center justify-center min-w-full p-0 px-8 m-0 mx-auto text-base bg-main-color font-text text-font-color md:text-base'>
+      <Header />
       <Component {...pageProps} />
       <Footer className='footer' />
     </main>
