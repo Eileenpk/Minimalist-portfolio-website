@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { gql, GraphQLClient } from "graphql-request";
-import ContactForm from "./utils/ContactForm";
+import ContactForm from "../components/ContactForm";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import NavLinks from "./NavLinks";
+import NavLinks from "../components/NavLinks";
 import { useState } from "react";
-import WindowSize from "./utils/WindowSize";
+import WindowSize from "../components/utils/WindowSize";
 export default function Header() {
-  const { width }  = WindowSize();
+  const { width } = WindowSize();
   // add clicked state to btn
   const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {

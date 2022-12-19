@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import ContactMeSection from "./ContactMeSection";
+import ContactMeSection from "../components/ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import WindowSize from "./utils/WindowSize";
+import WindowSize from "../components/utils/WindowSize";
 import Link from "next/link";
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -164,9 +164,7 @@ export default function Home({ sections }) {
             className="flex flex-col justify-around prevProjectContainer"
             href="/Portfolio"
           >
-            <div className="btn mb-[51px]" >
-              GO TO PORTFOLIO
-            </div>
+            <div className="btn mb-[51px]">GO TO PORTFOLIO</div>
           </Link>
         </div>
       </section>

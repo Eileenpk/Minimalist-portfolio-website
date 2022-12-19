@@ -1,5 +1,5 @@
 import Image from "next/image"
-import NavLinks from "./NavLinks"
+import NavLinks from "../components/NavLinks"
 export default function Footer () {
     return (
         <footer className='flex justify-center footer text-main-color bg-heading-color ' >

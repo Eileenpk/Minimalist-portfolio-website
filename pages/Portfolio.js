@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import ContactMeSection from "./ContactMeSection";
+import ContactMeSection from "../components/ContactMeSection";
 import { gql, GraphQLClient } from "graphql-request";
-import WindowSize from "./utils/WindowSize";
+import WindowSize from "../components/utils/WindowSize";
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
